@@ -22,7 +22,7 @@
     "Local\""
   ],
   "license": "MIT",
-  "main": "build/module.js",
+  "main": "src/module.js",
   "name": "dynamo-db-local",
   "repository": {
     "type": "git",
