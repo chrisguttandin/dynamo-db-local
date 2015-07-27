@@ -18,8 +18,7 @@
   "keywords": [
     "AWS",
     "DynamoDB",
-    "\"DynamoDB",
-    "Local\""
+    "DynamoDB Local"
   ],
   "license": "MIT",
   "main": "src/module.js",
