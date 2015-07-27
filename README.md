@@ -5,7 +5,7 @@
 This module wraps Amazon's
 [DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html).
 It just exposes one method called `spawn()` which does nothing more than calling
-`[child_process.spawn()](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)`
+[`child_process.spawn()`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)
 and returning it's result.
 
 ```js
