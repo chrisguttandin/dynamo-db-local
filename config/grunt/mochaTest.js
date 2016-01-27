@@ -19,6 +19,7 @@ module.exports = {
             ]
         },
         src: [
+            'test/integration/**/*.js',
             'test/unit/**/*.js'
         ]
     }
