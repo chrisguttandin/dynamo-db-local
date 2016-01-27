@@ -20,9 +20,9 @@ describe('dynamoDbLocal', function () {
 
             expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
             expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly('java', [
-                '-Djava.library.path=../lib/dynamodb_local_2015-07-16_1.0/DynamoDBLocal_lib',
+                '-Djava.library.path=../lib/dynamodb_local_2016-01-07_1.0/DynamoDBLocal_lib',
                 '-jar',
-                '../lib/dynamodb_local_2015-07-16_1.0/DynamoDBLocal.jar',
+                '../lib/dynamodb_local_2016-01-07_1.0/DynamoDBLocal.jar',
                 '-inMemory'
             ], {
                 cwd: 'a fake directory name'
