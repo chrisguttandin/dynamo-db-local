@@ -1,5 +1,8 @@
 {
   "author": "Christoph Guttandin",
+  "bugs": {
+    "url": "https://github.com/chrisguttandin/dynamo-db-local/issues"
+  },
   "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
   "devDependencies": {
     "chai": "^3.2.0",
