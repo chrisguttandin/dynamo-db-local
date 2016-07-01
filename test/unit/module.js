@@ -1,6 +1,7 @@
 'use strict';
 
-var rewire = require('rewire');
+var rewire = require('rewire'),
+    sinon = require('sinon');
 
 describe('dynamoDbLocal', function () {
 
