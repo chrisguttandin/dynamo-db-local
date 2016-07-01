@@ -6,7 +6,7 @@ module.exports = {
         'watch:continuous',
     ],
     lint: [
-        'jshint'
+        'eslint'
     ],
     test: [
         'mochaTest:test',

@@ -1,5 +1,3 @@
-'use strict';
-
 var dynamoDbLocal = require('../../src/module.js');
 
 describe('dynamoDbLocal', function () {
