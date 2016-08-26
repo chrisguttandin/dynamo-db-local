@@ -33,7 +33,7 @@
     "url": "https://github.com/chrisguttandin/dynamo-db-local.git"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt lint && grunt test"
   },
   "version": "1.0.0"
 }
