@@ -3,12 +3,12 @@
 module.exports = {
     continuous: [
         'mochaTest:test',
-        'watch:continuous',
+        'watch:continuous'
     ],
     lint: [
         'eslint'
     ],
     test: [
-        'mochaTest:test',
+        'mochaTest:test'
     ]
 };

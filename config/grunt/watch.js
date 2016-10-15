@@ -7,7 +7,7 @@ module.exports = {
             'test/unit/**/*.js'
         ],
         options: {
-            spawn: false,
+            spawn: false
         },
         tasks: [
             'test'
