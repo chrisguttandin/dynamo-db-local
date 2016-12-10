@@ -1,11 +1,11 @@
-var rewire = require('rewire'),
-    sinon = require('sinon');
+const rewire = require('rewire');
+const sinon = require('sinon');
 
 describe('dynamoDbLocal', function () {
 
     describe('spawn()', function () {
 
-        var dynamoDbLocal;
+        let dynamoDbLocal;
 
         beforeEach(function () {
             dynamoDbLocal = rewire('../../src/module.js');
