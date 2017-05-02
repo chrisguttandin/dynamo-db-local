@@ -20,6 +20,7 @@
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0"
   },
+  "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
   "keywords": [
     "AWS",
     "DynamoDB",
