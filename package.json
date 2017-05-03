@@ -5,7 +5,6 @@
   },
   "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
   "devDependencies": {
-    "babel-eslint": "^7.0.0",
     "chai": "^3.2.0",
     "eslint-config-holy-grail": "^17.0.0",
     "grunt": "^1.0.1",
