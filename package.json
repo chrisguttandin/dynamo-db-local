@@ -19,6 +19,9 @@
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0"
   },
+  "engines": {
+    "node": ">=6.10.3"
+  },
   "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
   "keywords": [
     "AWS",
