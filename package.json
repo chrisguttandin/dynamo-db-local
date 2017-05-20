@@ -23,6 +23,7 @@
     "node": ">=6.10.3"
   },
   "files": [
+    "lib/",
     "src/"
   ],
   "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
