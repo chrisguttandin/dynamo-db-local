@@ -28,6 +28,22 @@ describe('dynamoDbLocal', function () {
             });
         });
 
+        it('should spawn the child process on a custom port', function () {
+            dynamoDbLocal.spawn(8001);
+
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly('java', [
+                '-Djava.library.path=../lib/dynamodb_local_2017-05-17/DynamoDBLocal_lib',
+                '-jar',
+                '../lib/dynamodb_local_2017-05-17/DynamoDBLocal.jar',
+                '-inMemory',
+                '-port',
+                '8001'
+            ], {
+                cwd: 'a fake directory name'
+            });
+        });
+
     });
 
 });

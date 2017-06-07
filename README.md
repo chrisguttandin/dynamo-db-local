@@ -18,5 +18,14 @@ var dynamoDbLocalProcess = dynamoDbLocal.spawn();
 dynamoDbLocalProcess.kill();
 ```
 
+Optionally, you can customize the port number that the process will run on:
+
+```js
+var port = 8001;
+var dynamoDbLocalProcess = dynamoDbLocal.spawn(port);
+// ...
+dynamoDbLocalProcess.kill(port, 'SIGINT');
+```
+
 If you need more control over the command line parameters passed on to DynamoDB Local, you may want
 to have a look at [local-dynamo](https://github.com/apto/local-dynamo).
