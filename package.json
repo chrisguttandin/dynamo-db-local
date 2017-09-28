@@ -19,7 +19,7 @@
     "mocha": "^3.5.3",
     "rewire": "^2.3.4",
     "sinon": "^4.0.0",
-    "sinon-chai": "^2.13.0"
+    "sinon-chai": "^2.14.0"
   },
   "engines": {
     "node": ">=6.11.2"
