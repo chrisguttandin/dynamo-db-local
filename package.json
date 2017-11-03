@@ -18,7 +18,7 @@
     "load-grunt-config": "^0.19.1",
     "mocha": "^4.0.1",
     "rewire": "^2.3.4",
-    "sinon": "^4.1.0",
+    "sinon": "^4.1.1",
     "sinon-chai": "^2.14.0"
   },
   "engines": {
