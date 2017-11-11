@@ -1,5 +1,4 @@
-// The following require statements use let because they need to be reassigned for testing.
-let spawn = require('child_process').spawn; // eslint-disable-line prefer-const
+const { spawn } = require('child_process');
 
 module.exports.spawn = function (port) {
     const args = [
