@@ -3,6 +3,11 @@
   "bugs": {
     "url": "https://github.com/chrisguttandin/dynamo-db-local/issues"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
