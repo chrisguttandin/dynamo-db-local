@@ -8,6 +8,12 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "contributors": [
+    {
+      "email": "jeff.bradford@apexlearning.com",
+      "name": "Jeff Bradford"
+    }
+  ],
   "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
