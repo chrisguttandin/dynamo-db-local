@@ -8,24 +8,33 @@
 
 This module wraps Amazon's
 [DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html).
-It just exposes one method called `spawn()` which does nothing more than calling
+It just exposes one method called `spawn()` which does not much more than calling
 [`child_process.spawn()`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)
 and returning it's result.
 
 ```js
-var dynamoDbLocalProcess = dynamoDbLocal.spawn();
+const dynamoDbLocalProcess = dynamoDbLocal.spawn();
 // ...
 dynamoDbLocalProcess.kill();
 ```
 
-Optionally, you can customize the port number that the process will run on:
+The `spawn()` function accecpts an optional options object which can have an optional path. If set,
+that path will be used to store the database file. If no path is specified the database will be
+kept in memory.
 
 ```js
-var port = 8001;
-var dynamoDbLocalProcess = dynamoDbLocal.spawn(port);
+const path = 'somewhere/on/your/disk';
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ path });
 // ...
 dynamoDbLocalProcess.kill();
 ```
 
-If you need more control over the command line parameters passed on to DynamoDB Local, you may want
-to have a look at [local-dynamo](https://github.com/apto/local-dynamo).
+Another property the options object could have is port. It specifies the port number that the
+process will run on. In absence of the port property, 8000 is used as the port number.
+
+```js
+const port = 8001;
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ port });
+// ...
+dynamoDbLocalProcess.kill();
+```
