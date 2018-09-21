@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports.spawn = function (port) {
+module.exports.spawn = function ({ port = null } = { }) {
     const args = [
         '-Djava.library.path=../lib/dynamodb_local_2018-04-13/DynamoDBLocal_lib',
         '-jar',
@@ -8,7 +8,7 @@ module.exports.spawn = function (port) {
         '-inMemory'
     ];
 
-    if (typeof port === 'number' && port >= 0) {
+    if (port !== null) {
         args.push('-port', port.toString());
     }
 
