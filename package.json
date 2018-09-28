@@ -43,6 +43,11 @@
     "src/"
   ],
   "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
+  "husky": {
+    "hooks": {
+      "pre-commit": "grunt lint"
+    }
+  },
   "keywords": [
     "AWS",
     "DynamoDB",
@@ -56,7 +61,6 @@
     "url": "https://github.com/chrisguttandin/dynamo-db-local.git"
   },
   "scripts": {
-    "precommit": "grunt lint",
     "test": "grunt lint && grunt test"
   },
   "version": "3.0.0"
