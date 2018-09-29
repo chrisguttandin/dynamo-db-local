@@ -45,6 +45,7 @@
   "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint --edit --extends @commitlint/config-angular",
       "pre-commit": "grunt lint"
     }
   },
