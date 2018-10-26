@@ -59,6 +59,21 @@ describe('dynamoDbLocal', function () {
             });
         });
 
+        it('should spawn the child process with the sharedDb flag', function () {
+            dynamoDbLocal.spawn({ sharedDb: true });
+
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly('java', [
+                '-Djava.library.path=../lib/dynamodb_local_2018-04-13/DynamoDBLocal_lib',
+                '-jar',
+                '../lib/dynamodb_local_2018-04-13/DynamoDBLocal.jar',
+                '-inMemory',
+                '-sharedDb'
+            ], {
+                cwd: 'a fake directory name'
+            });
+        });
+
     });
 
 });
