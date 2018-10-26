@@ -28,8 +28,23 @@ describe('dynamoDbLocal', function () {
             });
         });
 
+        it('should spawn the child process with a custom path', function () {
+            dynamoDbLocal.spawn({ path: 'a/fake/path' });
+
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+            expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly('java', [
+                '-Djava.library.path=../lib/dynamodb_local_2018-04-13/DynamoDBLocal_lib',
+                '-jar',
+                '../lib/dynamodb_local_2018-04-13/DynamoDBLocal.jar',
+                '-dbPath',
+                'a/fake/path'
+            ], {
+                cwd: 'a fake directory name'
+            });
+        });
+
         it('should spawn the child process on a custom port', function () {
-            dynamoDbLocal.spawn(8001);
+            dynamoDbLocal.spawn({ port: 8001 });
 
             expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
             expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly('java', [
