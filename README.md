@@ -38,3 +38,11 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ port });
 // ...
 dynamoDbLocalProcess.kill();
 ```
+
+Finally the options object could have a sharedDb property. If true, DynamoDB will use a single database file, instead of using separate files for each credential and region. The default of this option is false.
+
+```js
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ sharedDb: true });
+// ...
+dynamoDbLocalProcess.kill();
+```
