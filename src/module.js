@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports.spawn = function ({ path = null, port = null, sharedDb = null } = { }) {
+module.exports.spawn = function ({ path = null, port = null, sharedDb = false } = { }) {
     const args = [
         '-Djava.library.path=../lib/dynamodb_local_2019-02-04/DynamoDBLocal_lib',
         '-jar',
