@@ -3,22 +3,26 @@ README
 
 For an overview of DynamoDB Local please refer to the documentation at http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html
 
-
-
 Release Notes
 -----------------------------
+
+2019-02-04
+
+  * Add on-demand implementation
+  * Add support for 20 GSIs (up from 5)
+  * Add transaction API implementation
+  * Update AWS SDK for Java to version 1.11.475
 
 2017-04-13 (1.11.119)
 
   * Add TTL implementation
-  * Update aws libs to 1.11.119
+  * Update AWS SDK for Java to version 1.11.119
 
 2017-01-24 (1.11.86)
 
   * Implement waiters() method in LocalDynamoDBClient
-  * Update aws libs to 1.11.86
+  * Update AWS SDK for Java to version 1.11.86
   * Enable WARN logging for SQLite
-
 
 2016-05-17_1.0
 
