@@ -2,9 +2,9 @@ const { spawn } = require('child_process');
 
 module.exports.spawn = function ({ path = null, port = null, sharedDb = false } = { }) {
     const args = [
-        '-Djava.library.path=../lib/dynamodb_local_2018-04-13/DynamoDBLocal_lib',
+        '-Djava.library.path=../lib/dynamodb_local_2019-02-04/DynamoDBLocal_lib',
         '-jar',
-        '../lib/dynamodb_local_2018-04-13/DynamoDBLocal.jar'
+        '../lib/dynamodb_local_2019-02-04/DynamoDBLocal.jar'
     ];
 
     if (path === null) {
