@@ -1,12 +1,13 @@
 module.exports = {
     continuous: [
-        'mochaTest:test',
+        'sh:test-unit',
         'watch:continuous'
     ],
     lint: [
         'eslint'
     ],
     test: [
-        'mochaTest:test'
+        'sh:test-integration',
+        'sh:test-unit'
     ]
 };
