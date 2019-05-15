@@ -32,7 +32,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sh": "^0.2.0",
     "gruntify-eslint": "^5.0.0",
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "load-grunt-config": "^1.0.2",
     "mocha": "^6.1.4",
     "rewire": "^4.0.1",
