@@ -35,7 +35,7 @@
     "load-grunt-config": "^3.0.1",
     "mocha": "^6.2.2",
     "rewire": "^4.0.1",
-    "sinon": "^7.5.0",
+    "sinon": "^8.0.1",
     "sinon-chai": "^3.3.0"
   },
   "engines": {
