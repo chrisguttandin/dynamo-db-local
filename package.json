@@ -21,7 +21,7 @@
   "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
   "devDependencies": {
     "@commitlint/cli": "^8.3.3",
-    "@commitlint/config-angular": "^8.2.0",
+    "@commitlint/config-angular": "^8.3.0",
     "chai": "^4.2.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
