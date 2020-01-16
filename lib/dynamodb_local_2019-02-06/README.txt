@@ -3,10 +3,14 @@ README
 
 For an overview of DynamoDB Local please refer to the documentation at http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html
 
+
 Release Notes
 -----------------------------
+2019-02-06 (1.11.477)
 
-2019-02-04
+  * Bugfixes
+
+2019-02-04 (1.11.475)
 
   * Add on-demand implementation
   * Add support for 20 GSIs (up from 5)
