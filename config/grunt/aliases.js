@@ -1,3 +1,9 @@
+const { env } = require('process');
+
+// eslint-disable-next-line padding-line-between-statements
+const filter = (predicate, ...tasks) => (predicate) ? tasks : [ ];
+const isType = (...types) => (env.TYPE === undefined || types.includes(env.TYPE));
+
 module.exports = {
     lint: [
         'sh:lint-config',
@@ -5,7 +11,7 @@ module.exports = {
         'sh:lint-test'
     ],
     test: [
-        'sh:test-integration',
-        'sh:test-unit'
+        ...filter(isType('integration'), 'sh:test-integration'),
+        ...filter(isType('unit'), 'sh:test-unit')
     ]
 };
