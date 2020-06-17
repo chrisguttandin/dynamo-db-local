@@ -6,6 +6,25 @@ For an overview of DynamoDB Local please refer to the documentation at http://do
 
 Release Notes
 -----------------------------
+2020-05-29 (1.13.1)
+
+  * Bugfix to throw validation error when gsi is queried with non projected attribute
+  * Bugfix to throw validation error when gsi with projection type other than ALL is queried with option Select as ALL_ATTRIBUTES
+
+2020-05-20 (1.13.0)
+
+  * Support up to 25 unique items and 4 MB of data per TransactWriteItems and TransactGetItems request
+  * Support empty values for non-key String and Binary attributes
+  * Fix warning log messages when DB is reinitialized
+  * Fix error messaging for inconsistent type validations
+  * Add shutdownNow API for DynamoDB Local embedded mode
+  * Update AWS SDK for Java to version 1.11.780
+
+2020-01-16 (1.12.0)
+
+  * Bugfixes
+  * Notarization for running on MacOS Catalina
+
 2019-02-06 (1.11.477)
 
   * Bugfixes
