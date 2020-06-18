@@ -2,9 +2,7 @@ const rewire = require('rewire');
 const sinon = require('sinon');
 
 describe('dynamoDbLocal', function () {
-
     describe('spawn()', function () {
-
         let dynamoDbLocal;
 
         beforeEach(function () {
@@ -89,7 +87,5 @@ describe('dynamoDbLocal', function () {
                 }
             );
         });
-
     });
-
 });
