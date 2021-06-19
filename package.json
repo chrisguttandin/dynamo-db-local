@@ -47,12 +47,6 @@
         "src/"
     ],
     "homepage": "https://github.com/chrisguttandin/dynamo-db-local",
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint --edit --extends @commitlint/config-angular",
-            "pre-commit": "pretty-quick --config config/prettier/config.json --staged && grunt lint"
-        }
-    },
     "keywords": [
         "AWS",
         "DynamoDB",
@@ -66,6 +60,7 @@
         "url": "https://github.com/chrisguttandin/dynamo-db-local.git"
     },
     "scripts": {
+        "prepare": "husky install",
         "test": "grunt lint && grunt test"
     },
     "version": "4.0.1"
