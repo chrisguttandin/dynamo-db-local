@@ -1,27 +1,53 @@
 const { spawn } = require('child_process');
 
-module.exports.spawn = function ({ path = null, port = null, sharedDb = false } = {}) {
-    const args = [
-        '-Djava.library.path=../lib/dynamodb_local_2021-05-03/DynamoDBLocal_lib',
-        '-jar',
-        '../lib/dynamodb_local_2021-05-03/DynamoDBLocal.jar'
-    ];
+module.exports.spawn = function ({ command = 'java', path = null, port = null, sharedDb = false } = {}) {
+    const args =
+        command === 'docker'
+            ? ['run']
+            : [
+                  '-Djava.library.path=../lib/dynamodb_local_2021-05-03/DynamoDBLocal_lib',
+                  '-jar',
+                  '../lib/dynamodb_local_2021-05-03/DynamoDBLocal.jar'
+              ];
+
+    if (command === 'docker') {
+        if (path !== null) {
+            args.push('--mount', `source=${path},target=/home/dynamodblocal/db,type=bind`);
+        }
+
+        args.push(
+            '--publish',
+            `8000:${port === null ? '8000' : port.toString()}`,
+            '--rm',
+            'amazon/dynamodb-local:latest',
+            '-jar',
+            'DynamoDBLocal.jar'
+        );
+
+        if (path !== null) {
+            args.push('-dbPath', '/home/dynamodblocal/db');
+        }
+    }
 
     if (path === null) {
         args.push('-inMemory');
-    } else {
-        args.push('-dbPath', path);
     }
 
-    if (port !== null) {
-        args.push('-port', port.toString());
+    if (command === 'java') {
+        if (path !== null) {
+            args.push('-dbPath', path);
+        }
+
+        if (port !== null) {
+            args.push('-port', port.toString());
+        }
     }
 
     if (sharedDb) {
         args.push('-sharedDb');
     }
 
-    return spawn('java', args, {
+    return spawn(command, args, {
         cwd: __dirname
     });
 };
