@@ -2,7 +2,6 @@
 
 **A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.**
 
-[![dependencies](https://img.shields.io/david/chrisguttandin/dynamo-db-local.svg?style=flat-square)](https://github.com/chrisguttandin/dynamo-db-local/network/dependencies)
 [![version](https://img.shields.io/npm/v/dynamo-db-local.svg?style=flat-square)](https://www.npmjs.com/package/dynamo-db-local)
 
 This module wraps Amazon's
