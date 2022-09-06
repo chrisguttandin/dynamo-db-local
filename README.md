@@ -4,11 +4,7 @@
 
 [![version](https://img.shields.io/npm/v/dynamo-db-local.svg?style=flat-square)](https://www.npmjs.com/package/dynamo-db-local)
 
-This module wraps Amazon's
-[DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html).
-It just exposes one method called `spawn()` which does not much more than calling
-[`child_process.spawn()`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)
-and returning it's result.
+This module wraps Amazon's [DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html). It exposes one method called `spawn()` which calls [`child_process.spawn()`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options) internally and returns its result.
 
 ```js
 const dynamoDbLocalProcess = dynamoDbLocal.spawn();
