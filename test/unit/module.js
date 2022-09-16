@@ -57,7 +57,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8001', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name'
                     }
