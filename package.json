@@ -16,6 +16,10 @@
         {
             "email": "jeff.bradford@apexlearning.com",
             "name": "Jeff Bradford"
+        },
+        {
+            "email": "dan.ballweg@gmail.com",
+            "name": "danballweg"
         }
     ],
     "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
