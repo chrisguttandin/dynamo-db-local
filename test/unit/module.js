@@ -96,9 +96,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-01-10/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-01-10/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
                         '-inMemory'
                     ],
                     {
@@ -114,9 +114,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-01-10/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-01-10/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
                         '-dbPath',
                         'a/fake/path'
                     ],
@@ -133,9 +133,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-01-10/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-01-10/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
                         '-inMemory',
                         '-port',
                         '8001'
@@ -153,9 +153,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-01-10/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-01-10/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
                         '-inMemory',
                         '-sharedDb'
                     ],
