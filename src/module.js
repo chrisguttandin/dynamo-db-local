@@ -49,6 +49,6 @@ module.exports.spawn = function ({ command = 'java', path = null, port = null, s
 
     return spawn(command, args, {
         cwd: __dirname,
-        stdio: 'inherit' // use parent's: "stdin", "stdout", "stderr" streams for better logging
+        stdio: 'inherit'
     });
 };
