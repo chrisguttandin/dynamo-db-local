@@ -21,7 +21,8 @@ describe('dynamoDbLocal', function () {
                     'docker',
                     ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -46,7 +47,8 @@ describe('dynamoDbLocal', function () {
                         '/home/dynamodblocal/db'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -59,7 +61,8 @@ describe('dynamoDbLocal', function () {
                     'docker',
                     ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -82,7 +85,8 @@ describe('dynamoDbLocal', function () {
                         '-sharedDb'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -102,7 +106,8 @@ describe('dynamoDbLocal', function () {
                         '-inMemory'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -121,7 +126,8 @@ describe('dynamoDbLocal', function () {
                         'a/fake/path'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -141,7 +147,8 @@ describe('dynamoDbLocal', function () {
                         '8001'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
@@ -160,7 +167,8 @@ describe('dynamoDbLocal', function () {
                         '-sharedDb'
                     ],
                     {
-                        cwd: 'a fake directory name'
+                        cwd: 'a fake directory name',
+                        stdio: 'inherit'
                     }
                 );
             });
