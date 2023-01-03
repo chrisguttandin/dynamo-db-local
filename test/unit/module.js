@@ -22,7 +22,7 @@ describe('dynamoDbLocal', function () {
                     ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -48,7 +48,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -62,7 +62,7 @@ describe('dynamoDbLocal', function () {
                     ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -86,6 +86,20 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
+            it('should spawn the child process with the specified stdio configuration', function () {
+                dynamoDbLocal.spawn({ command: 'docker', stdio: 'inherit' });
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'docker',
+                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:latest', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    {
+                        cwd: 'a fake directory name',
                         stdio: 'inherit'
                     }
                 );
@@ -107,7 +121,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -127,7 +141,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -148,7 +162,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
-                        stdio: 'inherit'
+                        stdio: 'pipe'
                     }
                 );
             });
@@ -165,6 +179,25 @@ describe('dynamoDbLocal', function () {
                         '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
                         '-inMemory',
                         '-sharedDb'
+                    ],
+                    {
+                        cwd: 'a fake directory name',
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
+            it('should spawn the child process with the specified stdio configuration', function () {
+                dynamoDbLocal.spawn({ stdio: 'inherit' });
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'java',
+                    [
+                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-jar',
+                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '-inMemory'
                     ],
                     {
                         cwd: 'a fake directory name',
