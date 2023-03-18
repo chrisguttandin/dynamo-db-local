@@ -19,7 +19,7 @@ module.exports.spawn = function ({ command = 'java', path = null, port = null, s
             '--publish',
             `${port === null ? '8000' : port.toString()}:8000`,
             '--rm',
-            'amazon/dynamodb-local:latest',
+            'amazon/dynamodb-local:1.20.0',
             '-jar',
             'DynamoDBLocal.jar'
         );
