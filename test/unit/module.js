@@ -19,7 +19,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.20.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         stdio: 'pipe'
@@ -40,7 +40,7 @@ describe('dynamoDbLocal', function () {
                         '--publish',
                         '8000:8000',
                         '--rm',
-                        'amazon/dynamodb-local:1.20.0',
+                        'amazon/dynamodb-local:1.21.0',
                         '-jar',
                         'DynamoDBLocal.jar',
                         '-dbPath',
@@ -59,7 +59,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:1.20.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         stdio: 'pipe'
@@ -78,7 +78,7 @@ describe('dynamoDbLocal', function () {
                         '--publish',
                         '8000:8000',
                         '--rm',
-                        'amazon/dynamodb-local:1.20.0',
+                        'amazon/dynamodb-local:1.21.0',
                         '-jar',
                         'DynamoDBLocal.jar',
                         '-inMemory',
@@ -97,7 +97,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.20.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         stdio: 'inherit'
@@ -114,9 +114,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
                         '-inMemory'
                     ],
                     {
@@ -133,9 +133,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
                         '-dbPath',
                         'a/fake/path'
                     ],
@@ -153,9 +153,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
                         '-inMemory',
                         '-port',
                         '8001'
@@ -174,9 +174,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
                         '-inMemory',
                         '-sharedDb'
                     ],
@@ -194,9 +194,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2022-09-12/DynamoDBLocal_lib',
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
                         '-jar',
-                        '../lib/dynamodb_local_2022-09-12/DynamoDBLocal.jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
                         '-inMemory'
                     ],
                     {
