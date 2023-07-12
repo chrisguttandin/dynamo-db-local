@@ -73,6 +73,7 @@
     },
     "scripts": {
         "lint:config": "eslint --config config/eslint/config.json --ext .js --report-unused-disable-directives config/",
+        "lint:src": "eslint --config config/eslint/src.json --ext .js --report-unused-disable-directives src/",
         "prepare": "husky install",
         "test": "grunt lint && grunt test"
     },
