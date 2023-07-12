@@ -6,7 +6,7 @@ module.exports = (grunt) => {
             cmd: 'npm run lint:config'
         },
         'lint-src': {
-            cmd: `eslint --config config/eslint/src.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives src/`
+            cmd: 'npm run lint:src'
         },
         'lint-test': {
             cmd: `eslint --config config/eslint/test.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives test/`
