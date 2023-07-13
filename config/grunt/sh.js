@@ -1,6 +1,4 @@
-module.exports = (grunt) => {
-    const fix = grunt.option('fix') === true;
-
+module.exports = () => {
     return {
         'lint-config': {
             cmd: 'npm run lint:config'
@@ -9,7 +7,7 @@ module.exports = (grunt) => {
             cmd: 'npm run lint:src'
         },
         'lint-test': {
-            cmd: `eslint --config config/eslint/test.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives test/`
+            cmd: 'npm run lint:test'
         },
         'test-integration': {
             cmd: 'mocha --bail --parallel --recursive --require config/mocha/config-integration.js test/integration'
