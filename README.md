@@ -47,5 +47,6 @@ In the CI/CD, you might want to let DynamoDB to run in the background.
 In this case, you should run:
 
 ```js
-dynamoDbLocal.spawn({ detached: true, stdio: 'ignore' })
+const subProcess = dynamoDbLocal.spawn({ detached: true, stdio: 'ignore' });
+subprocess.unref();
 ```
