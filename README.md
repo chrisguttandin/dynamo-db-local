@@ -40,3 +40,12 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ sharedDb: true });
 // ...
 dynamoDbLocalProcess.kill();
 ```
+
+## CI/CD
+
+In the CI/CD, you might want to let DynamoDB to run in the background.
+In this case, you should run:
+
+```js
+dynamoDbLocal.spawn({ detached: true, stdio: 'ignore' })
+```
