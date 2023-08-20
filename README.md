@@ -12,9 +12,34 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn();
 dynamoDbLocalProcess.kill();
 ```
 
-The `spawn()` function accecpts an optional options object which can have an optional path. If set,
-that path will be used to store the database file. If no path is specified the database will be
-kept in memory.
+## Configuration
+
+The `spawn()` function accecpts an optional options object.
+
+### command
+
+The command property of that object can be used to run DynamoDB Local with Docker instead of using the bundled Java version.
+
+```js
+const command = 'docker';
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ command });
+// ...
+dynamoDbLocalProcess.kill();
+```
+
+### detached
+
+In a CI/CD environment you might want to let DynamoDB Local to run in the background. In this case, you should use the `detached` property.
+
+```js
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ detached: true, stdio: 'ignore' });
+// ...
+dynamoDbLocalProcess.unref();
+```
+
+### path
+
+The options object can also be used to set an optional `path` property. If set, that path will be used to store the database file. If no path is specified the database will be kept in memory.
 
 ```js
 const path = 'somewhere/on/your/disk';
@@ -23,8 +48,9 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ path });
 dynamoDbLocalProcess.kill();
 ```
 
-Another property the options object could have is port. It specifies the port number that the
-process will run on. In absence of the port property, 8000 is used as the port number.
+### port
+
+Another property the options object could have is `port`. It specifies the port number that the process will run on. In absence of the port property, 8000 is used as the port number.
 
 ```js
 const port = 8001;
@@ -33,7 +59,9 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ port });
 dynamoDbLocalProcess.kill();
 ```
 
-Finally the options object could have a sharedDb property. If true, DynamoDB will use a single database file, instead of using separate files for each credential and region. The default of this option is false.
+### sharedDb
+
+The options object could also have a `sharedDb` property. If true, DynamoDB Local will use a single database file, instead of using separate files for each credential and region. The default of this option is false.
 
 ```js
 const dynamoDbLocalProcess = dynamoDbLocal.spawn({ sharedDb: true });
@@ -41,12 +69,12 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ sharedDb: true });
 dynamoDbLocalProcess.kill();
 ```
 
-## CI/CD
+### stdio
 
-In the CI/CD, you might want to let DynamoDB to run in the background.
-In this case, you should run:
+Finally the options object can also be used to specify a custom `stdio` configuration.
 
 ```js
-const subProcess = dynamoDbLocal.spawn({ detached: true, stdio: 'ignore' });
-subprocess.unref();
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ stdio: 'inherit' });
+// ...
+dynamoDbLocalProcess.kill();
 ```
