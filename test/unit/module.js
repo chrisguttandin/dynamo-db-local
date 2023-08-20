@@ -22,6 +22,22 @@ describe('dynamoDbLocal', function () {
                     ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
+            it('should spawn the child process with the detached flag', function () {
+                dynamoDbLocal.spawn({ command: 'docker', detached: true });
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'docker',
+                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    {
+                        cwd: 'a fake directory name',
+                        detached: true,
                         stdio: 'pipe'
                     }
                 );
@@ -48,6 +64,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -62,6 +79,7 @@ describe('dynamoDbLocal', function () {
                     ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -86,6 +104,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -100,6 +119,7 @@ describe('dynamoDbLocal', function () {
                     ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:1.21.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'inherit'
                     }
                 );
@@ -121,6 +141,27 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
+            it('should spawn the child process with the detached flag', function () {
+                dynamoDbLocal.spawn({ detached: true });
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'java',
+                    [
+                        '-Djava.library.path=../lib/dynamodb_local_2023-01-26/DynamoDBLocal_lib',
+                        '-jar',
+                        '../lib/dynamodb_local_2023-01-26/DynamoDBLocal.jar',
+                        '-inMemory'
+                    ],
+                    {
+                        cwd: 'a fake directory name',
+                        detached: true,
                         stdio: 'pipe'
                     }
                 );
@@ -141,6 +182,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -162,6 +204,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -182,6 +225,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );
@@ -201,6 +245,7 @@ describe('dynamoDbLocal', function () {
                     ],
                     {
                         cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'inherit'
                     }
                 );
