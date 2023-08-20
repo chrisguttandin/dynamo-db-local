@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports.spawn = function ({ command = 'java', path = null, port = null, sharedDb = false, stdio = 'pipe', detached = false } = {}) {
+module.exports.spawn = function ({ command = 'java', detached = false, path = null, port = null, sharedDb = false, stdio = 'pipe' } = {}) {
     const args =
         command === 'docker'
             ? ['run']
@@ -49,7 +49,7 @@ module.exports.spawn = function ({ command = 'java', path = null, port = null, s
 
     return spawn(command, args, {
         cwd: __dirname,
-        stdio,
-        detached
+        detached,
+        stdio
     });
 };
