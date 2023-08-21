@@ -1,7 +1,23 @@
+const { readFile } = require('fs/promises');
+const { join } = require('path');
 const rewire = require('rewire');
 const sinon = require('sinon');
 
 describe('dynamoDbLocal', function () {
+    let date;
+    let version;
+
+    before(async () => {
+        date = '2023-06-28';
+
+        const readme = await readFile(join(__dirname, `../../lib/dynamodb_local_${date}/README.txt`), { encoding: 'utf-8' });
+
+        version = readme
+            .split(/\n/)
+            .find((line) => /\d{4}-\d{2}-\d{2} \(\d+.\d+.\d+\)/.test(line))
+            .slice(12, -1);
+    });
+
     describe('spawn()', function () {
         let dynamoDbLocal;
 
@@ -19,7 +35,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:2.0.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8000:8000', '--rm', `amazon/dynamodb-local:${version}`, '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         detached: false,
@@ -34,7 +50,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:2.0.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8000:8000', '--rm', `amazon/dynamodb-local:${version}`, '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         detached: true,
@@ -56,7 +72,7 @@ describe('dynamoDbLocal', function () {
                         '--publish',
                         '8000:8000',
                         '--rm',
-                        'amazon/dynamodb-local:2.0.0',
+                        `amazon/dynamodb-local:${version}`,
                         '-jar',
                         'DynamoDBLocal.jar',
                         '-dbPath',
@@ -76,7 +92,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8001:8000', '--rm', 'amazon/dynamodb-local:2.0.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8001:8000', '--rm', `amazon/dynamodb-local:${version}`, '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         detached: false,
@@ -96,7 +112,7 @@ describe('dynamoDbLocal', function () {
                         '--publish',
                         '8000:8000',
                         '--rm',
-                        'amazon/dynamodb-local:2.0.0',
+                        `amazon/dynamodb-local:${version}`,
                         '-jar',
                         'DynamoDBLocal.jar',
                         '-inMemory',
@@ -116,7 +132,7 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'docker',
-                    ['run', '--publish', '8000:8000', '--rm', 'amazon/dynamodb-local:2.0.0', '-jar', 'DynamoDBLocal.jar', '-inMemory'],
+                    ['run', '--publish', '8000:8000', '--rm', `amazon/dynamodb-local:${version}`, '-jar', 'DynamoDBLocal.jar', '-inMemory'],
                     {
                         cwd: 'a fake directory name',
                         detached: false,
@@ -134,9 +150,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-inMemory'
                     ],
                     {
@@ -154,9 +170,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-inMemory'
                     ],
                     {
@@ -174,9 +190,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-dbPath',
                         'a/fake/path'
                     ],
@@ -195,9 +211,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-inMemory',
                         '-port',
                         '8001'
@@ -217,9 +233,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-inMemory',
                         '-sharedDb'
                     ],
@@ -238,9 +254,9 @@ describe('dynamoDbLocal', function () {
                 expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
                     'java',
                     [
-                        '-Djava.library.path=../lib/dynamodb_local_2023-06-28/DynamoDBLocal_lib',
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                         '-jar',
-                        '../lib/dynamodb_local_2023-06-28/DynamoDBLocal.jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                         '-inMemory'
                     ],
                     {
