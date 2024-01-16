@@ -5,9 +5,9 @@ module.exports.spawn = function ({ command = 'java', detached = false, path = nu
         command === 'docker'
             ? ['run']
             : [
-                  '-Djava.library.path=../lib/dynamodb_local_2023-12-14/DynamoDBLocal_lib',
+                  '-Djava.library.path=../lib/dynamodb_local_2024-01-04/DynamoDBLocal_lib',
                   '-jar',
-                  '../lib/dynamodb_local_2023-12-14/DynamoDBLocal.jar'
+                  '../lib/dynamodb_local_2024-01-04/DynamoDBLocal.jar'
               ];
 
     if (command === 'docker') {
@@ -19,7 +19,7 @@ module.exports.spawn = function ({ command = 'java', detached = false, path = nu
             '--publish',
             `${port === null ? '8000' : port.toString()}:8000`,
             '--rm',
-            'amazon/dynamodb-local:2.2.0',
+            'amazon/dynamodb-local:2.2.1',
             '-jar',
             'DynamoDBLocal.jar'
         );
