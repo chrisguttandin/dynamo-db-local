@@ -59,6 +59,32 @@ describe('dynamoDbLocal', function () {
                 );
             });
 
+            it('should spawn the child process with an explicit name', function () {
+                dynamoDbLocal.spawn({ command: 'docker', name: 'a-fake-name' });
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'docker',
+                    [
+                        'run',
+                        '--name',
+                        'a-fake-name',
+                        '--publish',
+                        '8000:8000',
+                        '--rm',
+                        `amazon/dynamodb-local:${version}`,
+                        '-jar',
+                        'DynamoDBLocal.jar',
+                        '-inMemory'
+                    ],
+                    {
+                        cwd: 'a fake directory name',
+                        detached: false,
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
             it('should spawn the child process with a custom path', function () {
                 dynamoDbLocal.spawn({ command: 'docker', path: 'a/fake/path' });
 
@@ -178,6 +204,26 @@ describe('dynamoDbLocal', function () {
                     {
                         cwd: 'a fake directory name',
                         detached: true,
+                        stdio: 'pipe'
+                    }
+                );
+            });
+
+            it('should spawn the child process with an explicit name', function () {
+                dynamoDbLocal.spawn();
+
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledOnce;
+                expect(dynamoDbLocal.__get__('spawn')).to.have.been.calledWithExactly(
+                    'java',
+                    [
+                        `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                        '-jar',
+                        `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                        '-inMemory'
+                    ],
+                    {
+                        cwd: 'a fake directory name',
+                        detached: false,
                         stdio: 'pipe'
                     }
                 );

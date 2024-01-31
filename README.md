@@ -37,6 +37,16 @@ const dynamoDbLocalProcess = dynamoDbLocal.spawn({ detached: true, stdio: 'ignor
 dynamoDbLocalProcess.unref();
 ```
 
+### name
+
+A custom name may be used to indentify the Docker container by name.
+
+```js
+const dynamoDbLocalProcess = dynamoDbLocal.spawn({ command: 'docker', name: 'a-unique-name' });
+// ...
+dynamoDbLocalProcess.kill();
+```
+
 ### path
 
 The options object can also be used to set an optional `path` property. If set, that path will be used to store the database file. If no path is specified the database will be kept in memory.

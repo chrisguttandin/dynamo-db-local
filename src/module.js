@@ -1,6 +1,14 @@
 const { spawn } = require('child_process');
 
-module.exports.spawn = function ({ command = 'java', detached = false, path = null, port = null, sharedDb = false, stdio = 'pipe' } = {}) {
+module.exports.spawn = function ({
+    command = 'java',
+    detached = false,
+    name = null,
+    path = null,
+    port = null,
+    sharedDb = false,
+    stdio = 'pipe'
+} = {}) {
     const args =
         command === 'docker'
             ? ['run']
@@ -13,6 +21,10 @@ module.exports.spawn = function ({ command = 'java', detached = false, path = nu
     if (command === 'docker') {
         if (path !== null) {
             args.push('--mount', `source=${path},target=/home/dynamodblocal/db,type=bind`);
+        }
+
+        if (name !== null) {
+            args.push('--name', name);
         }
 
         args.push(
