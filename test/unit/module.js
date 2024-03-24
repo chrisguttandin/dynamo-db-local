@@ -8,7 +8,7 @@ describe('dynamoDbLocal', function () {
     let version;
 
     before(async () => {
-        date = '2024-01-04';
+        date = '2024-03-14';
 
         const readme = await readFile(join(__dirname, `../../lib/dynamodb_local_${date}/README.txt`), { encoding: 'utf-8' });
 
