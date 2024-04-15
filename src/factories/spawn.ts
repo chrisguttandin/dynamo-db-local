@@ -1,5 +1,24 @@
-module.exports.createSpawn = function (cwd, spawn) {
-    return function ({ command = 'java', detached = false, name = null, path = null, port = null, sharedDb = false, stdio = 'pipe' } = {}) {
+import type { spawn as spawnFunction } from 'child_process';
+
+export const createSpawn =
+    (cwd: string, spawn: typeof spawnFunction) =>
+    ({
+        command = 'java',
+        detached = false,
+        name = null,
+        path = null,
+        port = null,
+        sharedDb = false,
+        stdio = 'pipe'
+    }: Partial<{
+        command: 'docker' | 'java';
+        detached: boolean;
+        name: null | string;
+        path: null | string;
+        port: null | number;
+        sharedDb: boolean;
+        stdio: 'ignore' | 'inherit' | 'pipe';
+    }> = {}) => {
         const args =
             command === 'docker'
                 ? ['run']
@@ -56,4 +75,3 @@ module.exports.createSpawn = function (cwd, spawn) {
             stdio
         });
     };
-};

@@ -66,6 +66,8 @@
         "node": ">=18.2.0"
     },
     "files": [
+        "build/es2019/",
+        "build/node/",
         "lib/",
         "src/"
     ],
@@ -76,19 +78,22 @@
         "DynamoDB Local"
     ],
     "license": "MIT",
-    "main": "src/module.js",
+    "main": "build/node/module.js",
     "name": "dynamo-db-local",
     "repository": {
         "type": "git",
         "url": "https://github.com/chrisguttandin/dynamo-db-local.git"
     },
     "scripts": {
+        "build": "rimraf build/* && tsc --project src/tsconfig.json && babel ./build/es2019 --config-file ./config/babel/build.json --out-dir ./build/node",
         "lint": "npm run lint:config && npm run lint:src && npm run lint:test",
         "lint:config": "eslint --config config/eslint/config.json --ext .js --report-unused-disable-directives config/",
-        "lint:src": "eslint --config config/eslint/src.json --ext .js --report-unused-disable-directives src/",
+        "lint:src": "tslint --config config/tslint/src.json --project src/tsconfig.json src/*.ts src/**/*.ts",
         "lint:test": "eslint --config config/eslint/test.json --ext .js --report-unused-disable-directives test/",
         "prepare": "husky install",
+        "prepublishOnly": "npm run build",
         "test": "grunt lint && grunt test"
     },
+    "types": "build/es2019/module.d.ts",
     "version": "8.1.1"
 }

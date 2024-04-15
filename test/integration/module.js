@@ -1,9 +1,9 @@
-const dynamoDbLocal = require('../../src/module.js');
+import { spawn } from '../../src/module';
 
 describe('dynamoDbLocal', function () {
     describe('spawn()/kill()', function () {
         it('should spawn and kill an instance of DynamoDB Local', function () {
-            const dynamoDbLocalProcess = dynamoDbLocal.spawn();
+            const dynamoDbLocalProcess = spawn();
 
             dynamoDbLocalProcess.kill();
         });

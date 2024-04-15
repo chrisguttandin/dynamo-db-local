@@ -1,5 +1,8 @@
 module.exports = () => {
     return {
+        'build': {
+            cmd: 'npm run build'
+        },
         'lint-config': {
             cmd: 'npm run lint:config'
         },

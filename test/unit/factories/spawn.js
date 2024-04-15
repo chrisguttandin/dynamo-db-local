@@ -1,7 +1,7 @@
-const { readFile } = require('fs/promises');
-const { join } = require('path');
-const { createSpawn } = require('../../../src/factories/spawn');
-const sinon = require('sinon');
+import { createSpawn } from '../../../src/factories/spawn';
+import { join } from 'path';
+import { readFile } from 'fs/promises';
+import { stub } from 'sinon';
 
 describe('spawn()', function () {
     let childProcessSpwan;
@@ -22,7 +22,7 @@ describe('spawn()', function () {
     });
 
     beforeEach(() => {
-        childProcessSpwan = sinon.stub();
+        childProcessSpwan = stub();
         cwd = 'a fake directory name';
 
         spawn = createSpawn(cwd, childProcessSpwan);
