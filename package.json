@@ -30,6 +30,9 @@
             "name": "danballweg"
         }
     ],
+    "dependencies": {
+        "tslib": "^2.6.2"
+    },
     "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
     "devDependencies": {
         "@commitlint/cli": "^19.2.2",
