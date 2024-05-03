@@ -23,9 +23,9 @@ export const createSpawn =
             command === 'docker'
                 ? ['run']
                 : [
-                      '-Djava.library.path=../lib/dynamodb_local_2024-04-16/DynamoDBLocal_lib',
+                      '-Djava.library.path=../../lib/dynamodb_local_2024-04-16/DynamoDBLocal_lib',
                       '-jar',
-                      '../lib/dynamodb_local_2024-04-16/DynamoDBLocal.jar'
+                      '../../lib/dynamodb_local_2024-04-16/DynamoDBLocal.jar'
                   ];
 
         if (command === 'docker') {

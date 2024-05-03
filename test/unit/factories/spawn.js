@@ -176,9 +176,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory'
                 ],
                 {
@@ -196,9 +196,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory'
                 ],
                 {
@@ -216,9 +216,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory'
                 ],
                 {
@@ -236,9 +236,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-dbPath',
                     'a/fake/path'
                 ],
@@ -257,9 +257,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory',
                     '-port',
                     '8001'
@@ -279,9 +279,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory',
                     '-sharedDb'
                 ],
@@ -300,9 +300,9 @@ describe('spawn()', function () {
             expect(childProcessSpwan).to.have.been.calledWithExactly(
                 'java',
                 [
-                    `-Djava.library.path=../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
+                    `-Djava.library.path=../../lib/dynamodb_local_${date}/DynamoDBLocal_lib`,
                     '-jar',
-                    `../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
+                    `../../lib/dynamodb_local_${date}/DynamoDBLocal.jar`,
                     '-inMemory'
                 ],
                 {
