@@ -31,7 +31,7 @@
         }
     ],
     "dependencies": {
-        "tslib": "^2.6.3"
+        "tslib": "^2.7.0"
     },
     "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
     "devDependencies": {
