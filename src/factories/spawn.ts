@@ -23,9 +23,9 @@ export const createSpawn =
             command === 'docker'
                 ? ['run']
                 : [
-                      '-Djava.library.path=../../lib/dynamodb_local_2024-11-06/DynamoDBLocal_lib',
+                      '-Djava.library.path=../../lib/dynamodb_local_2024-12-12/DynamoDBLocal_lib',
                       '-jar',
-                      '../../lib/dynamodb_local_2024-11-06/DynamoDBLocal.jar'
+                      '../../lib/dynamodb_local_2024-12-12/DynamoDBLocal.jar'
                   ];
 
         if (command === 'docker') {
@@ -41,7 +41,7 @@ export const createSpawn =
                 '--publish',
                 `${port === null ? '8000' : port.toString()}:8000`,
                 '--rm',
-                'amazon/dynamodb-local:2.5.3',
+                'amazon/dynamodb-local:2.5.4',
                 '-jar',
                 'DynamoDBLocal.jar'
             );
