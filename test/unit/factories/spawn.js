@@ -11,12 +11,13 @@ describe('spawn()', function () {
     let version;
 
     before(async () => {
-        date = '2025-03-14';
+        date = '2025-06-26';
 
         const readme = await readFile(join(__dirname, `../../../lib/dynamodb_local_${date}/README.txt`), { encoding: 'utf-8' });
 
         version = readme
             .split(/\n/)
+            .map((line) => line.trim())
             .find((line) => /\d{4}-\d{2}-\d{2} \(\d+.\d+.\d+\)/.test(line))
             .slice(12, -1);
     });
