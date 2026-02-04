@@ -36,7 +36,7 @@
     "description": "A wrapper around Amazon's DynamoDB Local to start and stop it from Node.js.",
     "devDependencies": {
         "@babel/cli": "^7.28.6",
-        "@babel/core": "^7.28.6",
+        "@babel/core": "^7.29.0",
         "@babel/preset-env": "^7.28.6",
         "@babel/register": "^7.28.6",
         "@commitlint/cli": "^20.3.1",
